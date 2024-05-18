@@ -1,0 +1,14 @@
+.Dashboard {
+    width: 100%;
+    display: flex;
+}
+.Dashboard-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    //background-color: rgb(250, 249, 249);
+    background-color: rgb(247, 244, 244);
+}
+.dashboard-container {
+    padding-top: 1rem;
+}

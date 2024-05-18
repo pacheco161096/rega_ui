@@ -1,0 +1,37 @@
+@import 'utilities/mixins.scss';
+@import 'utilities/variables.scss';
+@import 'global/reset.scss';
+@import 'global/home.scss';
+@import 'components/body.scss';
+@import 'components/header.scss';
+@import 'components/menu.scss';
+@import 'components/slider.scss';
+@import 'components/packageHome.scss';
+@import 'components/packageBussines.scss';
+@import 'components/cards.scss';
+@import 'components/contact.scss';
+@import 'components/payments.scss';
+@import 'components/support.scss';
+@import 'components/map.scss';
+@import 'components/footer.scss';
+@import 'components/modalLogin.scss';
+@import 'components/login.scss';
+@import 'components/dashboard.scss';
+@import 'components/aside.scss';
+@import 'components/headerDashboard.scss';
+@import 'components/misServicios.scss';
+@import 'components/facturas.scss';
+@import 'components/soporte.scss';
+@import 'components/editarPerfil.scss';
+@import 'components/loading.scss';
+@import 'components/logout.scss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #000a25;
+}
+.mapboxgl-control-container {
+    display: none;
+}

@@ -1,0 +1,47 @@
+/*Mixin BreakPoints*/
+@mixin breakpoint($breakpoint) {
+    @if $breakpoint == 'medium-simple' {
+      @media (min-width: $bp-new-medium-simple) {
+        @content;
+      
+      }
+    }
+    @else if $breakpoint == 'medium' {
+      @media (min-width: $bp-new-medium) {
+        @content;
+        /*768px*/
+      }
+    }
+    @else if $breakpoint == 'medium-tablet' {
+      @media (min-width: $bp-new-medium-tablet) {
+        @content;
+        /*880px*/
+      }
+    }
+    @else if $breakpoint == 'medium-high' {
+      @media (min-width: $bp-new-medium-high) {
+        @content;
+        /*1024px*/
+      }
+    }
+    @else if $breakpoint == 'large' {
+      @media (min-width: $bp-new-large) {
+        @content;
+        /*1280px*/
+      }
+    }
+    @else if $breakpoint == 'xlarge' {
+      @media (min-width: $bp-new-xlarge) {
+        @content;
+        /*1440px*/
+      }
+    }
+      @else if $breakpoint == 'homepage-max' {
+        @media (min-width: $bp-new-homepage-max) {
+          @content;
+          /*2000px*/
+        }
+      }
+    
+    }
+    

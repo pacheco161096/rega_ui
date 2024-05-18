@@ -1,0 +1,88 @@
+.contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.contact-container {
+    width: 100%;
+    max-width: 1124px;
+    background-image:url('../../assets/familia.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+.contact-formContainer {
+    width: 100%;
+    max-width: 540px;
+    height: 400px;
+    background-color: $color-blue;
+    color: $color-white;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contact-form {
+    width: 100%;
+    max-width: 540px;
+    height: 400px;
+}
+.contact-message {
+    width:100%;
+    max-width: 540px;
+    height: 400px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    p{
+        font-size:18px;
+        text-align:center;
+        padding:00.5rem;
+    }
+}
+.contact-h3 {
+    width: 100%;
+    max-width: 322px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    margin-bottom: 2rem;
+}
+.contact-label {
+    width: 100%;
+    max-width: 322px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 36px;
+    text-align: left;
+}
+.contact-input {
+    width: 100%;
+    max-width: 322px;
+    border-bottom: 1px solid $color-white;
+    margin-bottom: 0.5rem;
+}
+.contact-btn {
+    width: 150px;
+    height: 40px;
+    background: #0A0917;
+    border: 1px solid #0A0917;
+    border-radius: 17px;
+    margin-top: 2rem;
+}
+@include breakpoint('medium-high') {
+    .contact-form {
+        height: 450px;
+    }
+    .contact-h3 {
+        font-size: 30px;
+    }
+}
+@include breakpoint('medium') {
+    .contact {
+        padding: 0 1rem;
+    }
+}

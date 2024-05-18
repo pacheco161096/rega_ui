@@ -1,0 +1,53 @@
+.support {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem 0;
+}
+
+.support-h2 {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.support-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.support-card {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.support-h3 {
+  text-align: center;
+}
+
+.support-p {
+  text-align: center;
+}
+/*# sourceMappingURL=support.css.map */

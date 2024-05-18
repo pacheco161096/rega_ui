@@ -1,0 +1,130 @@
+.sectionSlider {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.slider {
+  display: flex;  
+  height: 100vh;
+  margin-left: -100%;  
+}
+
+.slider-slide {
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+}
+
+.container-slide {
+  color: $color-white;
+  width: 100%;
+}
+
+.slider-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.slider-h2 { 
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.slider-p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 180%;
+  width: 70%;
+}
+
+.buttonsSliderMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  position: absolute;
+  left: 0;  
+  bottom: 0;
+  width: 100%;
+}
+
+.slider-textButton {
+  background-color: $color-textBussines;
+  border-radius: 2rem;
+  cursor: pointer;
+  min-width: 200px;
+  padding: 1rem;
+  color: $color-white;
+}
+
+.slider-button {
+  display: none;
+}
+
+@include breakpoint('medium') {
+  .sectionSlider {
+    position: initial;
+  }
+
+  .slider-slide {
+    position: initial;
+    padding: 0;
+  }
+
+  .container-slide {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    max-width: 960px;
+    width: 80%;
+  }
+
+  .slider-text {
+    height: 100%;
+    padding: 0 1rem;
+    width: 100%;
+    gap: 3rem;
+  }
+
+  .slider-h2 {
+    width:70%;
+    line-height: 50px;
+    font-size:45px;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+
+  .slider-p {
+    width: 70%;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 180%;
+  }
+
+  .slider-button {
+    align-items: center;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 1px solid $color-white;
+    color: $color-white;
+    cursor: pointer;
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+    transition: ease-in 0.1s;
+    width: 50px;
+    
+    &:hover {
+      color: $color-bussineSecond;
+      background-color: $color-white;
+    }
+  }
+}

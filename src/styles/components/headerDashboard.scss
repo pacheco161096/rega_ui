@@ -1,0 +1,89 @@
+.headerDashboard {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+    z-index: 100;
+}
+.headerDashboard-h2 {
+    font-size: 16px;
+    text-align: center;
+}
+.headerDashboard-profile {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+.headerDashboard-logout {
+	top: 0;
+	margin-top: 2rem;
+	align-items: center;
+	background-color: rgb(255, 255, 255);
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	padding: 1rem;
+	position: absolute;
+	border-radius: 0.5rem;
+}
+.headerDashboard-bell {
+    display: none;
+}
+.headerDashboard-notification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+		padding: 0 1rem;
+}
+
+.headerDashboard-nameProfile {
+    display: flex;
+    align-items: center;
+    color: rgb(150, 148, 148);
+    cursor: pointer;
+}
+
+.headerDashboard-btnClose {
+    display: flex;
+    margin-left: 0.5rem;
+    font-size: 14px;
+}
+.headerDashboard-hidden {
+    display: none;
+}
+
+
+@include breakpoint('medium-tablet') {
+    .headerDashboard-bell {
+        display: flex;
+        font-size: 22px;
+    }
+    .headerDashboard-h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+}
+@include breakpoint('medium-high') {
+    .headerDashboard-bars {
+        display: none;
+    }
+    .headerDashboard-nameProfile {
+        display: flex;
+        align-items: center;
+        color: rgb(150, 148, 148);
+        cursor: pointer;
+    }
+    .headerDashboard-p {
+        margin: 0 0.5rem;
+    }
+    .active{
+        transform: rotate(90deg);
+    }
+}

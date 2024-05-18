@@ -1,0 +1,113 @@
+.facturas {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.facturas-container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: $color-white;
+    padding: 2rem;
+}
+.facturas-select {
+    form {
+        display: flex;
+        align-items: flex-end;
+    }
+}
+.facturas-datos {
+    width: 100%;
+    border-bottom: 3px solid $color-blue;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+.facturas-h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.facturas-domicilio {
+    width: 100%;
+    text-align: left;
+}
+.facturas-p {
+    font-size: 14px;
+}
+.facturas-cuenta {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.facturas-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+.facturas-row:nth-child(odd) {
+    background-color: rgb(225, 223, 223);
+}
+.facturas-pbold {
+   font-size: 14px;
+   font-weight: 600;
+}
+.facturas-span {
+    font-size: 14px;
+}
+
+.facturas-pagar {
+    width: 100%;
+}
+.facturas-botones {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.facturas-btn {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:$color-blue;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    color: $color-white;
+}
+.facturas-btn:hover {
+    background-color:$color-white;
+    border: 1px solid $color-blue;
+    color:$color-blue;
+}
+.facturas-download {
+    width: 180px;
+    margin-bottom: 1rem;
+    background-color: $color-yellow;
+    color: $color-black;
+}
+.facturas-download:hover {
+    background-color:$color-white;
+    border: 1px solid $color-yellow;
+    color:$color-yellow;
+}
+
+.facturas-consulta {}
+.facturas-link{
+    font-weight: 700;
+}
+@include breakpoint('medium-simple') {
+    .facturas-botones {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .facturas-download {
+        width: 180px;
+        margin-bottom: 0;
+        margin-right: 1rem;
+    }
+}

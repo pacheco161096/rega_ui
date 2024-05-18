@@ -1,0 +1,68 @@
+.modalLogin {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.596);
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+}
+.modalLoginHidden {
+    display: none;
+}
+.modalLogin-close {
+    cursor: pointer;
+    text-align: right;
+    font-size: 20px;
+    font-weight: 600;
+}
+.modalLogin-main {
+  color: $color-text;
+  border-radius: 1rem;
+  background-color: $color-white;
+  min-width: 300px;
+  padding: 1.5rem;
+}
+.modalLogin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+} 
+.modalLogin-header {
+  display: flex;
+  justify-content: flex-end;
+}
+.Login-h1 {
+  font-size: 2rem;
+  word-wrap: break-word;
+}
+
+.modalLogin-circle {
+  width: 120px;
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  background: $gradient-purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: $color-white;
+}
+
+
+.Login-p {
+  text-align: center;
+}
+
+@keyframes animationButton {
+  from {
+    background: $gradient-purple;
+  }
+  to {
+    background: linear-gradient(1.84deg, #286CB0 100%, #747DF9 102.88%);
+  }
+}

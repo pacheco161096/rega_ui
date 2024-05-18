@@ -1,0 +1,40 @@
+.support {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+}
+.support-h2 {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 30px;
+        margin-bottom: 15px;
+        text-align: center;
+}
+.support-container {
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.support-card {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.support-h3 {
+    text-align: center;
+    color: $color-blue;
+}
+.support-p {
+    text-align: center;
+}
+
+@include breakpoint('medium-tablet') {
+    .support-container {
+        flex-direction: row;
+    }
+}

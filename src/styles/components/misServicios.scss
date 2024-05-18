@@ -1,0 +1,375 @@
+.misServicios {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.misServicios-container {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.misServicios-h3 {
+    width: 100%;
+    max-width: 1100px;
+    text-align: left;
+    font-size: 30px;
+    margin-bottom: 1rem;
+}
+.misServicios-section {
+    width:100%;
+    max-width: 1100px;
+    background:#fff;
+    padding:1rem;
+    border-radius: 20px;
+}
+.misServicios-miPaquete {
+    width: 100%;
+}
+.misServicios-titlePlan {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.misServicios-blue {
+    color: $color-blueLight;
+}
+.misServicios-h4 {
+    font-size: 16px;
+    margin-bottom:1rem;
+}
+.misServicios-diasCorte {
+    display: flex;
+    align-items: center;
+    color: #039967;
+}
+.misServicios-bold {
+    font-weight: 700;
+}
+.misServicios-calendario {
+    font-size: 30px;
+    margin-right: 0.5rem;
+}
+.misServicios-infoPaquete {
+    border: 1px solid #dadada;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.misServicios-pagarAhora {
+  width: 100%;
+  max-width: 450px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.misServicios-total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    font-size: 20px;
+    margin-bottom: 1rem;
+}
+.misServicios-saldo {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 70px;
+}
+.misServicios-conRecargo {
+    text-decoration: line-through;
+    color: red;
+    font-size: 14px;
+}
+.misServicios-h5 {
+    font-weight: 600;
+}
+.misServicios-btn {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:$color-pink;
+    border-radius: 10px;
+    cursor: pointer;
+    color: $color-white;
+    justify-self: start;
+}
+.misServicios-Button {
+	display: flex;
+	width: 100%;
+}
+.misServicios-btn:hover {
+    background-color:$color-white;
+    border: 1px solid $color-pink;
+    color:$color-pink;
+}
+.misServicios-statusCuenta {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem;
+    display:flex;
+    align-items:center;
+}
+.misServicios-activo {
+    color: #039967;
+}
+.misServicios-inactivo {
+    color: red;
+}
+.misServicios-circleGreen {
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background-color:#039967;
+    margin-left:5px;
+}
+.misServicios-circleRed {
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background-color:red;
+    margin-left:5px;
+}
+.misServicios-plan {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.misServicios-caracteristicas {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.misServicios-li {
+    list-style-type:disc;
+}
+.misServicios-planTipo {
+    font-size: 22px;
+    color: $color-blueLight;
+    margin-bottom: 1rem;
+}
+.misServicios-p {
+    font-size: 14px;
+}
+
+.misServicios-icono {
+    width: 130px;
+    aspect-ratio: 1/1;
+    font-size: 50px;
+    border-radius: 50%;
+    background-color: $color-blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:$color-white;
+    border: 5px solid $color-grey;
+    margin-bottom: 1rem;
+}
+.misServicios-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.misServicios-infoRow {
+    width: 100%;
+    text-align: left;
+}
+.misServicios-editar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.misServicios-editarBtn {
+    color: #039967;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.misServicios-item {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+.misServicios-span {
+    font-weight: 700;
+}
+@include breakpoint('medium-tablet') {
+    .misServicios {
+        padding:1rem;
+    }
+    .misServicios-section {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+  .misServicios-titlePlan {
+    display: flex;
+    justify-content: space-between;
+  }
+  .misServicios-h4 {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  .misServicios-infoPaquete {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .misServicios-pagarAhora {
+    width: 50%;
+    border-right: 1px solid #dadada;
+    justify-content: space-between;
+  }
+  .misServicios-total {
+    font-size: 35px;
+  }
+  .misServicios-conRecargo {
+    font-size: 20px;
+    margin-bottom: 1rem;
+  }
+  .misServicios-plan {
+    width: 50%;
+    }
+    .misServicios-ul {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .misServicios-info {
+      gap:10px;
+    }
+    .misServicios-infoRow {
+      display: flex;
+    }
+    .misServicios-icono {
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+    .misServicios-item {
+      width: 25%;
+    }
+    .misServicios-item:nth-child(2) {
+      width: 15%;
+    }
+    .misServicios-item:nth-child(4) {
+      width: 35%;
+    }
+    
+}
+
+.StripeElement {
+  width: 100%;
+}
+
+.payment-form {
+  display: none;
+  width: 100%;
+  gap: 15px;
+}
+
+.misServicios-detailsPayment {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.misServicios-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.misServicios-velocity {
+  align-items: center;
+  aspect-ratio: 1/1;
+  background-color: $color-bluePayment;
+  border-radius: 0.5rem;
+  color: $color-white;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 40px;
+
+  span {
+    font-size: 10px;
+  }
+}
+
+.misServicios-desc {
+  align-items: center;
+  aspect-ratio: 1/1;
+  background-color: $color-pink;
+  border-radius: 0.5rem;
+  color: $color-white;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 40px;
+
+  span {
+    font-size: 10px;
+  }
+}
+
+.misServicios-containerDetail {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.misServicios-titleDetail {
+  font-weight: 700;
+}
+
+.misServicios-loading {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: $color-white;
+  left: 0;
+  top:0;
+  z-index: 120;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 20px;
+  aspect-ratio: 1/1;
+  border: 5px solid #FFF;
+  border-bottom-color: $color-grey;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 

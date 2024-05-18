@@ -1,0 +1,94 @@
+.Aside {
+    width: 90%;
+    height: 100%;
+    top:0;
+    left: 0;
+    position: fixed;    
+    background-color: #fff;
+    -webkit-box-shadow: 9px 2px 12px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 2px 12px -3px rgba(0,0,0,0.75);
+    box-shadow: 9px 2px 12px -3px rgba(0,0,0,0.75);
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+}
+.Aside-close {
+    left: -1200px;
+    transition: all 0.5s ease-in-out;
+}
+.Aside-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.Aside-logo {
+    width: 70%;
+}
+.Aside-close {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 30px;
+    transition: all 0.5s ease-in-out;
+}
+.Aside-ul {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+.Aside-li {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+.Aside-li:hover {
+    border-left: 5px solid rgb(245, 83, 83);
+}
+.Aside-span {
+    font-size: 20px;
+    margin-left: 1rem;
+    text-align: left;
+}
+
+@include breakpoint('medium-simple') {
+    .Aside {
+        width: 50%;
+    }
+}
+
+
+@include breakpoint('medium-high') {
+    .Aside {
+        width: 55px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+        border-right: 1px solid rgba(0, 0, 0, 0.075);
+        overflow: hidden;
+        position:sticky; 
+        height: 100vh;
+    }
+    .Aside:hover {
+        width: 200px;
+    }
+    .Aside-logo {
+        display: none;
+    }
+    .Aside-ul {
+        margin-top: 5rem;
+
+    }
+    .Aside-close {
+        display: none;
+    }
+    .Aside-li i {
+        font-size: 25px;
+    }
+}
