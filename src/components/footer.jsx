@@ -22,21 +22,23 @@ const Footer = () => {
   elementsIcon.current = sections.map((element, i) => elementsIcon.current[i] ?? createRef());
   return (
     <section id="footer">
-      <div className="mx-auto max-w-7xl p-6 lg:px-8 flex flex-col md:flex-row items-center justify-center">
-        <div className='grid grid-cols-1 md:grid-cols-6 gap-2'>
-          <div className='flex flex-col text-sm text-white gap-3'>
-            <img src={logo} alt="" className='w-3/5'/>
+      <div className="mx-auto max-w-7xl p-6 lg:px-8 flex flex-col items-center justify-center">
+        <div className='w-full mb-5 border-b pb-5'>
+          <div className='flex flex-col text-[12px] text-gray-500 gap-3'>
+            <img src={logo} alt="" className='w-[100px]'/>
             <TraslateCopy copyId="HOME_FOOTER_META"/>
           </div>
+        </div>
+        <div className='grid grid-cols-1 md:grid-cols-5 w-full'>
           {
             sections.length > 0 && sections.map((item,i) => {
               return(
-                <div key={ item.titulo}>
+                <div key={ item.titulo} className='text-[12px]'>
                   <div className='footer-title' onClick={ () => handleFooter(myRefs.current[i], elementsIcon.current[i])}>
-                    <span className='font-bold text-white text-left text-xl'>{ item.titulo }</span> 
+                    <span className='font-bold text-gray-800 text-left'>{ item.titulo }</span> 
                     <span ref={ elementsIcon.current[i] }>▼</span>
                   </div>
-                  <div className="flex flex-col text-sm text-white gap-3" ref={ myRefs.current[i] }>
+                  <div className="flex flex-col text-gray-600 gap-2" ref={ myRefs.current[i] }>
                     {
                       item.links?.length > 0 && item.links.map(link => <a key={ link.link} href={ link.link }>{ link.text }</a>)
                     }
@@ -45,11 +47,11 @@ const Footer = () => {
               )
             })
           }
-          <div>
-            <div className='font-bold text-white text-left text-xl'>
+          <div className=''>
+            <div className='font-bold text-gray-800 text-left mb-[15px]'>
               <TraslateCopy copyId="HOME_FOOTER_CONTACTANOS"/>
             </div>
-            <div className="flex flex-col text-sm text-white gap-3">
+            <div className="flex flex-col text-gray-600 gap-2 text-[12px]">
               <div><TraslateCopy copyId="HOME_FOOTER_CONTRATACIONES"/></div>
               <div><TraslateCopy copyId="HOME_FOOTER_PHONE"/></div>
               <div><TraslateCopy copyId="HOME_FOOTER_EMAIL"/></div>
@@ -57,9 +59,11 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <div className='font-bold text-white text-left text-xl'><TraslateCopy copyId="HOME_FOOTER_SIGUENOS"/></div>
+            <div className='font-bold text-gray-800 text-left mb-[15px]'>
+              <TraslateCopy copyId="HOME_FOOTER_SIGUENOS"/>
+            </div>
             <div className='footer-icons'>
-              <div className='flex gap-3 md:grid grid-cols-3 w-full text-white text-2xl md:text-xl mt-2'>
+              <div className='flex gap-2 w-full text-gray-600 text-2xl md:text-xl mt-2'>
                 <i class="fa-brands fa-facebook text-left"></i>
                 <i className="fa-brands fa-instagram text-left"></i>
                 <i className="fa-brands fa-whatsapp text-left"></i>
@@ -69,23 +73,28 @@ const Footer = () => {
               </div>
             </div>
             <div className='mt-5'>
-              <div className='font-bold text-white text-left text-xl'><TraslateCopy copyId="PAYMENTS_TITLE"/></div>
-              <div className='flex md:grid grid-cols-3 gap-2 items-center md:justify-center mt-2'>
-                <img src={ master } alt="" className='md:w-3/4 w-[50px]'/>
-                <img src={ oxxo } alt="" className='md:w-3/4 w-[50px]'/>
-                <img src={ visa } alt="" className='md:w-3/4 w-[50px]'/>
+              <div className='font-bold text-gray-800 text-left'>
+                <TraslateCopy copyId="PAYMENTS_TITLE"/>
+              </div>
+              <div className='flex gap-2 items-center mt-2'>
+                <img src={ master } alt="" className='w-[40px]'/>
+                <img src={ oxxo } alt="" className='w-[40px]'/>
+                <img src={ visa } alt="" className='w-[40px]'/>
               </div>
             </div>
           </div>
         </div>
-        <div className='footer-documents'>
+        <div className='flex justify-start w-full text-[12px] text-gray-600 border-t mt-5 pt-5 flex-col md:flex-row'>
+          <span>Copyright © 2024 REGATELECOM. Todos los derechos reservados.</span>
+          <div className='flex gap-2 flex-col md:flex-row'>
           {
             documents.map(document => {
               return(
-                <div onClick={() => window.open(`https://cms.regatelecom.mx/${document.documento}`)} >{ document.texto }</div>
+                <a href={`https://cmsalmacenamientoregatelecom.nyc3.digitaloceanspaces.com${document.documento}`} target='_blank' rel="noopener noreferrer">{ document.texto }</a>
               )
             })
           }
+        </div>
         </div>
       </div>
     </section>

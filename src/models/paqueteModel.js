@@ -10,5 +10,6 @@ function paqueteModel(data) {
   this.id = data.id;
   this.recargo = data.attributes?.recargo;
   this.folio = data.attributes?.folio;
+  this.imagen = data.attributes?.imagen?.data?.attributes?.url;
 }
 export default paqueteModel;

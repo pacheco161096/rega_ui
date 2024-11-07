@@ -15,50 +15,64 @@ import { traslateCopySuccess } from '../redux/reducers/traslateCopy-reducer'
 import { footerSuccess } from '../redux/reducers/footer-reducer'
 import { documentsSuccess } from '../redux/reducers/document-reducer'
 
-const baseUrlCMS = 'http://localhost:1337/api/'
+const baseUrlCMS = 'https://monkfish-app-2et8k.ondigitalocean.app/api/'
 
 const cms = {
-  getSliders(language,dispatch){
-    const url= baseUrlCMS+`sliders?populate=imagen&locale=${ language = 'es-mx' ? 'es-MX' : language }`
-    getCms(url, sliderModel, dispatch,sliderSuccess)
+  generateLocale(language) {
+    return language === 'es-mx' ? 'es-MX' : language;
   },
-  getCards(language,dispatch){
-    const url= baseUrlCMS+`cards?populate=icono&locale=${ language = 'es-mx' ? 'es-MX' : language }`
-    getCms(url, cardsModel, dispatch,cardsSuccess)
+  
+  async getSliders(language, dispatch) {
+    const url = `${baseUrlCMS}sliders?populate=imagen&locale=${this.generateLocale(language)}`;
+    return await getCms(url, sliderModel, dispatch, sliderSuccess);
   },
-  getHogar(language,dispatch){
-    const url= baseUrlCMS+`paquetes-hogar?locale=${ language = 'es-mx' ? 'es-MX' : language }`
-    getCms(url, hogarModel, dispatch,hogarSuccess)
-  },
-  getNegocio(language,dispatch){
-    const url= baseUrlCMS+`paquetes-negocio?locale=${ language = 'es-mx' ? 'es-MX' : language }`
-    getCms(url, hogarModel, dispatch,negocioSuccess)
-  },
-  getPaquetes(language,dispatch){
-    const url= baseUrlCMS+`paquetes?populate=%2A&locale=${ language = 'es-mx' ? 'es-MX' : language }`
-    getCms(url, paquetesModel, dispatch, paquetesSuccess)
-  },
-  getTraslateCopy(language,dispatch){
-    const url= baseUrlCMS+`traslate-copies?locale=${ language = 'es-mx' ? 'es-MX' : language }&pagination[pageSize]=1000`
-    getCms(url,traslateCopies, dispatch,traslateCopySuccess)
-  }, 
-  getFooter(language,dispatch){
-    const url= baseUrlCMS+`footers?populate=%2A&locale=${ language = 'es-mx' ? 'es-MX' : language }`
-    getCms(url,footerModel, dispatch,footerSuccess)
-  }, 
-  getDocument(language,dispatch){
-    const url= baseUrlCMS+`/documentos?populate=documento&locale=${ language = 'es-mx' ? 'es-MX' : language }`
-    getCms(url, documentsModel , dispatch, documentsSuccess)
-  }
-}
 
-const getCms = async (url, modelUi, dispatch,action) => {
-  await axios.get(url)
-  .then(function (response){
-    const data = new modelUi(response.data) // ejecutamos la funcion de modelo plural mandandole la data
-    dispatch(action(data))
-  }).catch(function(error){
-  });
-}
+  async getCards(language, dispatch) {
+    const url = `${baseUrlCMS}cards?populate=icono&locale=${this.generateLocale(language)}`;
+    return await getCms(url, cardsModel, dispatch, cardsSuccess);
+  },
+
+  async getHogar(language, dispatch) {
+    const url = `${baseUrlCMS}paquetes-hogar?locale=${this.generateLocale(language)}`;
+    return await getCms(url, hogarModel, dispatch, hogarSuccess);
+  },
+
+  async getNegocio(language, dispatch) {
+    const url = `${baseUrlCMS}paquetes-negocio?locale=${this.generateLocale(language)}`;
+    return await getCms(url, hogarModel, dispatch, negocioSuccess);
+  },
+
+  async getPaquetes(language, dispatch) {
+    const url = `${baseUrlCMS}paquetes?populate=%2A&locale=${this.generateLocale(language)}`;
+    return await getCms(url, paquetesModel, dispatch, paquetesSuccess);
+  },
+
+  async getTraslateCopy(language, dispatch) {
+    const url = `${baseUrlCMS}traslate-copies?locale=${this.generateLocale(language)}&pagination[pageSize]=1000`;
+    return await getCms(url, traslateCopies, dispatch, traslateCopySuccess);
+  },
+
+  async getFooter(language, dispatch) {
+    const url = `${baseUrlCMS}footers?populate=%2A&locale=${this.generateLocale(language)}`;
+    return await getCms(url, footerModel, dispatch, footerSuccess);
+  },
+
+  async getDocument(language, dispatch) {
+    const url = `${baseUrlCMS}documentos?populate=documento&locale=${this.generateLocale(language)}`;
+    return await getCms(url, documentsModel, dispatch, documentsSuccess);
+  }
+};
+
+const getCms = async (url, modelUi, dispatch, action) => {
+  try {
+    const response = await axios.get(url);
+    const data = new modelUi(response.data); // Creamos la instancia del modelo con los datos
+    dispatch(action(data)); // Despachamos la acción con los datos procesados
+    return 'success'; // Devolvemos el estado de éxito
+  } catch (error) {
+    console.error('Error fetching CMS data:', error); // Manejo del error
+    return 'error'; // Devolvemos el estado de error
+  }
+};
 
 export default cms;

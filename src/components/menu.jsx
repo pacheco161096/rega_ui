@@ -32,6 +32,9 @@ const Menu = ({handleModal}) => {
             <img className="w-32" src={ logo } alt="" />
           </a>
         </div>
+        <div className='md:hidden'>
+          { RenderLenguage() }
+        </div>
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -52,13 +55,16 @@ const Menu = ({handleModal}) => {
           <a href="#mapa" className="text-sm font-semibold leading-6 text-white cursor-pointer">
             <TraslateCopy copyId="HOME_MENU_COBERTURA"/>
           </a>
-          <a href="#soporte" className="text-sm font-semibold leading-6 text-white cursor-pointer">
+          <a href="#contacto" className="text-sm font-semibold leading-6 text-white cursor-pointer">
             <TraslateCopy copyId="HOME_MENU_SOPORTE"/>
           </a>
           <a href="#contacto" className="text-sm font-semibold leading-6 text-white cursor-pointer">
             <TraslateCopy copyId="HOME_MENU_CONTACTANOS"/>
           </a>
-          <a href="es-mx/login" className="text-sm font-semibold leading-6 text-white cursor-pointer bg-[#2d8ae8] py-2 px-5 rounded-lg">
+          <div>
+            { RenderLenguage() }
+          </div>
+          <a href="es-mx/login" className="text-sm font-semibold leading-6 text-white cursor-pointer bg-[#0076DF] py-2 px-5 rounded-lg">
             <TraslateCopy copyId="HOME_MENU_MYACCOUNT"/>
           </a>
         </Popover.Group>
@@ -101,7 +107,7 @@ const Menu = ({handleModal}) => {
                 <a href="/Contactanos" className="text-sm font-semibold leading-6 text-white cursor-pointer">
                   <TraslateCopy copyId="HOME_MENU_CONTACTANOS"/>
                 </a>
-                <a href="/hoteles" className="text-sm font-semibold leading-6 text-white cursor-pointer bg-[#2d8ae8] py-2 px-5 rounded-lg">
+                <a href="/hoteles" className="text-sm font-semibold leading-6 text-white cursor-pointer bg-[#0076DF] py-2 px-5 rounded-lg">
                   <TraslateCopy copyId="HOME_MENU_MYACCOUNT"/>
                 </a>
               </div>
@@ -116,19 +122,23 @@ const Menu = ({handleModal}) => {
 }
 
 const RenderLenguage = () => {
-  const refContainer = useRef(null)
-  const refArrow = useRef(null)
   const { lang } = useParams();
   
-  const handleSelect = () => {
-    const style = refContainer.current.style.display
-    refContainer.current.style.display = style === 'flex' ? 'none' : 'flex'
-    refArrow.current.style.transform = style === 'flex' ? 'rotate(360deg)' : 'rotate(180deg)'
-  }
-
   return (
-    <div className='language'>
-      <div className='language-select' onClick={() => handleSelect()}> 
+    <div className='flex'>
+      <div className='border rounded-full w-[70px] h-[30px] border-white relative flex justify-between p-1 items-center cursor-pointer'>
+        <Link className="" to="/es-mx">
+          <div className={`w-[20px] aspect-square ${lang!=='es-mx' && 'filter grayscale'}`}>
+            <img src={mx}  alt=''/>
+          </div>
+        </Link>
+        <Link className="" to="/en">
+        <div className={`w-[20px] aspect-square ${lang==='es-mx' && 'filter grayscale'}`}>
+          <img src={en}  alt=''/>
+        </div>
+        </Link>
+      </div>
+      {/*<div className='language-select' onClick={() => handleSelect()}> 
         <div className='language-img'><img src={lang==='es-mx' ? mx : en} /></div>
         <span className='language-text'>{lang==='es-mx' ? 'Español' : 'English'}</span>
         <i className="fa-solid fa-arrow-down language-arrow" ref={ refArrow }></i>
@@ -142,7 +152,7 @@ const RenderLenguage = () => {
           <div className='language-img'><img src={mx} /></div>
           <span className='language-text'>Español</span>
         </Link>
-      </div>
+      </div>*/}
     </div>
   )
 }

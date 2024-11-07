@@ -11,9 +11,10 @@
 :root {
   --negro: #000000;
   /* Tipografía */
-  --tipo-principal: 'Raleway', sans-serif;
- // --tipo-secundaria: Verdana;
+  --tipo-principal: 'SF Pro Display', sans-serif;
+ // --tipo-secundaria: Verdana;                                                
 }
+
 
 /* Las adaptamos al modo oscuro */
 @media (prefers-color-scheme: dark) {

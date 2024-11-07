@@ -1,25 +1,45 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState, useEffect, useRef }  from 'react';
 import { useSelector } from 'react-redux';
-import Check from './check.svg'
 import TraslateCopy from './traslateCopy';
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-import 'swiper/css/free-mode'
-
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 
 const PackageBussines = () => {
-  const titulo = useSelector(state => state.negocio.titulo)
-  const descripcion = useSelector(state => state.negocio.descripcion)
   const paquetes = useSelector(state => state.paquetes.paquetes.paquetesNegocio)
   const [filterPaquetes, setFilterPaquetes] = useState(paquetes && paquetes.filter(paquete => paquete.categoria === "asimetrico"));
-  const [button, setButton] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const divRef = useRef(null); // Ref para el div a observar
+  const [position, setPosition] = useState(0);
+  const [Modal, setModal] = useState(false);
+  const [handlePackageAnimation, sethandlePackageAnimation] = useState(false)
 
   useEffect(() => {
     setFilterPaquetes(paquetes && paquetes.filter(paquete => paquete.categoria === "asimetrico")) 
   }, [paquetes]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Cambiamos el estado según la visibilidad del div
+        setTimeout(() => {
+          setIsVisible(entry.isIntersecting);
+        }, 100); // Cambia el estado tras 2 segundos de demora
+      },
+      {
+        root: null, // Observa dentro del viewport
+        threshold: 0.7, // El div debe estar al menos 10% visible
+      }
+    );
+
+    if (divRef.current) {
+      observer.observe(divRef.current); // Observa el div
+    }
+
+    // Cleanup cuando el componente se desmonta
+    return () => {
+      if (divRef.current) {
+        observer.unobserve(divRef.current);
+      }
+    };
+  }, []);
 
   const handleClick = (type) => {
     const slider = document.getElementById('contenedorPaquetesBussines');
@@ -29,92 +49,132 @@ const PackageBussines = () => {
   }
 
   const handlePackage = (type, state) => {
+    sethandlePackageAnimation(true)
+    setTimeout(() => {
+      sethandlePackageAnimation(false)
+    }, 1000); // Cambia el estado tras 2 segundos de demora
     setFilterPaquetes(paquetes.filter(paquete => paquete.categoria === type))
-    setButton(state)
+    if (state) {
+      setPosition((prev) => prev - 100);
+    } else {
+      setPosition((prev) => prev + 100);
+    }
   } 
 
+  const modalCostoExtra = (action) => {
+    if (action) {
+      setModal(true);
+      document.body.style.overflow = 'hidden';
+    } else {
+      setModal(false);
+      document.body.style.overflow = 'visible';
+    }
+  }
+
   return (
-    <section className='mb-10 -mt-10 relative z-10'>
+    <section className='mb-10 -mt-10' id="packages">
       <div className="mx-auto max-w-7xl p-6 lg:px-8 flex flex-col gap-4">
-        <div className='flex flex-col gap-3 text-center justify-center items-center'>
-          <h1 className='text-4xl font-extrabold text-white'>Paquetes Negocio</h1>
-          <span className='text-sm text-white w-full md:w-[80%] font-semibold'>
-          Potencia tu negocio con nuestros paquetes, que incluyen antena receptora, cableado hasta 30 metros (metros adicionales con costo extra), router y base para la antena. Si estás fuera del área de servicio, te ofrecemos un presupuesto sin compromiso.
-          </span>
+        <div className='flex flex-col gap-3 justify-center items-center'>
+          <h1 className='text-5xl font-semibold text-[rgb(29,29,31)] w-full'><TraslateCopy copyId="HOME_PAQUETE_BUSSINES_TITULO"/></h1>
+          <div className='flex flex-col md:flex-row justify-end items-end gap-4 md:gap-0'>
+            <span className='text-base w-full'>
+              <p className='md:w-[70%]'><TraslateCopy copyId="HOME_PAQUETE_BUSSINES_DESCRIPCION"/>
+                <span className='text-[#0076DF] cursor-pointer' onClick={() => modalCostoExtra(true)}>
+                <TraslateCopy copyId="HOME_PAQUETES_HOGAR_MAS_DETALLES"/>
+                </span>
+                </p>
+            </span>
+            <div className='flex h-10 border-[#0076DF] border rounded-lg w-full md:w-[30%] relative'>
+              <button className={`text-base text-white w-1/2 text-center`} style={{ color: position ? '#0076DF' : 'white'}} onClick={()=> handlePackage('asimetrico', true,)}>
+                <TraslateCopy copyId="PACKAGE_ASYMETRIC"/>
+              </button>
+              <button className={`text-base text-[#0076DF] w-1/2 text-center`} style={{ color: !position ? '#0076DF' : 'white'}} onClick={()=> handlePackage('simetrico', false)}>
+                <TraslateCopy copyId="PACKAGE_SYMMETRICAL"/>
+              </button>
+              <div className={`button-change absolute bg-[#0076DF] rounded-lg w-1/2 min-h-full -z-10 left-0 bottom-0 switch-toggle-button`} style={{ transform: `translateX(${position}%)` }}></div>
+            </div>
+          </div>
         </div>
         <div className='flex flex-col justify-center items-center'>
-          <div className='flex p-1 border-[#40caf4] border-2 rounded-lg w-full md:w-1/4 relative'>
-            <button className={`text-xl text-white p-2 w-1/2 text-center font-bold`} onClick={()=> handlePackage('asimetrico', true)}>
-              <TraslateCopy copyId="PACKAGE_ASYMETRIC"/>
-            </button>
-            <button className={`text-xl text-white p-2 w-1/2 text-center font-bold`} onClick={()=> handlePackage('simetrico', false)}>
-              <TraslateCopy copyId="PACKAGE_SYMMETRICAL"/>
-            </button>
-            <div className={`absolute bg-[#40caf4] w-1/2 min-h-full -z-10 left-0 bottom-0 ${!button && 'translate-x-full'}`}></div>
-          </div>
-          <div className="packageHome-slider relative w-full">
-            <div className='scroll-smooth flex overflow-hidden w-full mt-5' id='contenedorPaquetesBussines'>
-              {filterPaquetes  && filterPaquetes.map((paquete, index) => {
-                  const paqueteMayor = filterPaquetes.reduce((previous, current) => {
-                    return current.velocidad > previous.velocidad ? current : previous;
-                  });
-                const percent = ((paquete.velocidad - 0) / (paqueteMayor.velocidad - 0)) * 5;
+          <div className="packageHome-slider relative w-full" >
+            <div className='scroll-smooth flex overflow-hidden w-full mt-5' id='contenedorPaquetesBussines' ref={divRef}>
+              {filterPaquetes  && filterPaquetes?.sort((a, b) => a.velocidad - b.velocidad)?.map((paquete, index) => {
+                const paqueteMayor = filterPaquetes.reduce((previous, current) => {
+                  return current.velocidad > previous.velocidad ? current : previous;
+                });
+                const percent = ((paquete.velocidad - 0) / (paqueteMayor.velocidad - 0)) * 10;
                 return(
-                  <div className='packageBussines-paquete min-w-full md:min-w-[33.333333%] md:w-1/3 md:p-3' key={ paquete.velocidad }>
-                    <div className='rounded-lg border-2 border-[#40caf4] flex flex-col px-5 py-10'>
-                      <div className='text-3xl text-white font-bold text-center'>{ paquete.titulo }</div>
-                      <div className="flex flex-col justify-center mt-5">
-                        <div className='flex justify-center relative'>
-                          <div className="progress" id={`progress${index}`}>
-                            <div className="circle" style={{animationDelay:`-${percent/2}s`}} ></div>
-                            <div className="range">
-                            </div>
-                            <div id={`meterstyle${index}`}>
-                              <style>{`#progress${index}:after{animation-delay:-${percent/2}s;}`}</style>
-                            </div>
+                  <div className='packageBussines-paquete min-w-full md:min-w-[33.3333%] md:w-[33.3333%]' key={ paquete.velocidad }>
+                    <div className='flex flex-col relative px-3'>
+                    { handlePackageAnimation && <div className='w-[95%] absolute h-full z-50 rounded-xl flex justify-center items-center animation-package-loading'></div> }
+                      <div className='flex flex-col gap-3 absolute bottom-0 left-0 w-full'>
+                        <div className="px-10 py-5 flex-col flex gap-2">
+                          <div className='text-3xl text-white font-bold'>{ paquete.titulo }</div>
+                          <div className='flex justify-between'>
+                            <span className='text-white font-bold text-xl'>
+                              {paquete.velocidad} Mbps
+                            </span>
+                            <div className='flex items-end justify-center'><span className='text-xl font-bold text-white'>${ paquete.precio.toLocaleString("en") }</span><span className='text-sm text-[#0076DF] font-semibold'>/<TraslateCopy copyId="PACKAGE_PER_MONTH"/></span></div>
                           </div>
-                        </div>
-                        <span className='text-center text-[#40caf4] font-bold text-3xl -mt-16 z-20'>
-                          {paquete.velocidad} Mbps
-                        </span>
-                      </div>
-                      <div className='packageBussines-paquete-body'>
-                        <div className='packageBussines-paquete-velocidad'>
-                          <div className='packageBussines-paquete-velocidadTitle'>
+                          <div class="w-full h-1">
+                            <div class={`h-1 rounded-lg bg-white shadow-[0_0_15px_rgba(255,255,255,1)] transition-all duration-2000`} style={{width:`${isVisible ? percent*10 : 0}%`}}>
 
-                          </div>
-                          <div className='packageBussines-paquete-velocidadTitle-svg'>
-                          </div>
-                        </div>
-                      </div>
-                      <div className='flex flex-col'>
-                        <h1 className='text-[#2d8ae8] text-base font-semibold'>CARACTERÍSTICAS PRINCIPALES</h1>
-                        <div className='flex flex-col gap-5 my-3'>
-                          { paquete.caracteristicas.map(item => 
-                            <div className='flex gap-2 items-center text-white font-semibold'>
-                              <i className="fa-thin fa-circle-check"></i>
-                              <span>{ item.caracteristica }</span>
                             </div>
-                            )}
+                          </div>
+                          <div className='flex flex-col gap-1'>
+                            <h1 className='text-white text-base font-semibold'>CARACTERÍSTICAS PRINCIPALES</h1>
+                            <div className='flex gap-2'>
+                              { paquete.caracteristicas.map(item => 
+                                <div className='flex gap-2 items-center text-white'>
+                                  <i className="fa-thin fa-circle-check"></i>
+                                  <span>{ item.caracteristica }</span>
+                                </div>
+                                )}
+                            </div>
+                          </div>
+                          <div className='flex flex-col gap-2'>
+                            <button className='text-white bg-[#0076DF] p-2 rounded-lg text-center w-full'><TraslateCopy copyId="PACKAGE_ORDER_NOW"/></button>
+                            <div className='text-xs text-center text-[#0076DF]'>Folio:{paquete.folio}</div>
+                          </div>
                         </div>
                       </div>
-                      <div className='flex flex-col gap-5'>
-                        <div className='flex items-end justify-center'><span className='text-3xl font-bold text-white'>${ paquete.precio.toLocaleString("en") }</span><span className='text-sm text-[#2d8ae8] font-semibold'>/<TraslateCopy copyId="PACKAGE_PER_MONTH"/></span></div>
-                        <div className='text-white font-bold bg-[#40caf4] p-2 rounded-lg text-center'><TraslateCopy copyId="PACKAGE_ORDER_NOW"/></div>
-                        <div className='text-xs text-center text-[#2d8ae8] font-bold'>Folio:{paquete.folio}</div>
-                      </div>
+                      <img className='object-cover w-full h-[650px] rounded-3xl' src="https://img.freepik.com/foto-gratis/estilo-vida-personas-tatuadas_23-2149667357.jpg?t=st=1727931332~exp=1727934932~hmac=ad4fbb13b54c7c21007dee419e1ba545065a45557126473e664909995c0a002b&w=740" alt="" />
                     </div>
                   </div>
                 )
               })}
             </div>
-            <div className='absolute top-[35%]  m-auto items-center -left-[2%] w-[104%] flex justify-between'>
-              <button className='border-2 border-[#40caf4] bg-[#000a25] rounded-full w-[50px] aspect-square text-[#40caf4] text-3xl flex justify-center items-center' onClick={() => handleClick('left')}><i className="fa-regular fa-chevron-left"></i></button>
-              <button className='border-2 border-[#40caf4] bg-[#000a25] rounded-full w-[50px] aspect-square text-[#40caf4] text-3xl flex justify-center items-center' onClick={() => handleClick('rigth')}><i className="fa-regular fa-chevron-right"></i></button>
-          </div>
+            <div className='w-full flex justify-end mt-5'>
+              <div className='flex gap-2'>
+                <button className='border-[#40caf4] rounded-full w-[35px] aspect-square text-[#081025] text-xl flex justify-center items-center bg-gray-200 opacity-70' onClick={() => handleClick('left')}><i className="fa-regular fa-chevron-left"></i></button>
+                <button className='border-[#40caf4] rounded-full w-[35px] aspect-square text-[#081025] text-xl flex justify-center items-center bg-gray-200' onClick={() => handleClick('rigth')}><i className="fa-regular fa-chevron-right"></i></button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      {Modal && <div className='fixed top-0 left-0 z-50 w-full h-screen bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center transition-opacity duration-300'>
+        <div className='w-[300px] md:min-w-[700px] bg-white rounded-3xl'>
+          <div className='p-5 flex justify-end'>
+            <button className='cursor-pointer bg-gray-200 font-bold w-[40px] aspect-square rounded-full' onClick={() => modalCostoExtra(false)}>
+              x
+            </button>
+          </div>
+          <div className='px-10 pb-10 flex justify-between w-full items-center'>
+            <div className='flex flex-col gap-2'>
+              <h1 className='text-2xl font-semibold'>¡Instalación completa por solo $2,300 MXN!</h1>
+              <span>
+              Incluye antena de última generación, router, instalación profesional y 15 metros de cable UTP para exteriores
+                <span className='text-sm ml-1 text-gray-400'>(Metraje adicional con costo extra, consulta con nuestro equipo de atención al cliente).</span>
+              </span>
+              <span>Promoción válida hasta el 30 de noviembre de 2024. ¡No te quedes fuera!</span>
+            </div>
+            <div className='flex justify-center items-center'>
+              <img src="./assets/antena.jpeg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>}
     </section>
   );
 }
