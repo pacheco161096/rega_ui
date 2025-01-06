@@ -138,7 +138,7 @@ const PackageBussines = () => {
                           </div>
                         </div>
                       </div>
-                      <img className='object-cover w-full h-[650px] rounded-3xl' src="https://img.freepik.com/foto-gratis/estilo-vida-personas-tatuadas_23-2149667357.jpg?t=st=1727931332~exp=1727934932~hmac=ad4fbb13b54c7c21007dee419e1ba545065a45557126473e664909995c0a002b&w=740" alt="" />
+                      <img className='object-cover w-full h-[650px] rounded-3xl' src={ `https://monkfish-app-2et8k.ondigitalocean.app${paquete.imagen}` } alt="" />
                     </div>
                   </div>
                 )
