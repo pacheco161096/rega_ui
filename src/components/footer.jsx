@@ -64,7 +64,7 @@ const Footer = () => {
             </div>
             <div className='footer-icons'>
               <div className='flex gap-2 w-full text-gray-600 text-2xl md:text-xl mt-2'>
-                <i class="fa-brands fa-facebook text-left"></i>
+                <i className="fa-brands fa-facebook text-left"></i>
                 <i className="fa-brands fa-instagram text-left"></i>
                 <i className="fa-brands fa-whatsapp text-left"></i>
               </div>
@@ -88,9 +88,16 @@ const Footer = () => {
           <span>Copyright © 2024 REGATELECOM. Todos los derechos reservados.</span>
           <div className='flex gap-2 flex-col md:flex-row'>
           {
-            documents.map(document => {
+            documents.map((document, i) => {
               return(
-                <a href={`https://cmsalmacenamientoregatelecom.nyc3.digitaloceanspaces.com${document.documento}`} target='_blank' rel="noopener noreferrer">{ document.texto }</a>
+                <a
+                  href={`https://cmsalmacenamientoregatelecom.nyc3.digitaloceanspaces.com${document.documento}`}
+                  key={ i }
+                  target='_blank'
+                  rel="noopener noreferrer"
+                >
+                  { document.texto }
+                </a>
               )
             })
           }

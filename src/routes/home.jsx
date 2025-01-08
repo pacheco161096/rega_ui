@@ -69,9 +69,9 @@ const Home = () => {
   return (
     <div className='home'>
       {loading && <div className='loading'>
-        <div class="container">
-          <div class="progress-bar">
-            <div class="loaded"></div>
+        <div className="container">
+          <div className="progress-bar">
+            <div className="loaded"></div>
           </div>
         </div>  
       </div>} 

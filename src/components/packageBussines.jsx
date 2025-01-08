@@ -116,16 +116,16 @@ const PackageBussines = () => {
                             </span>
                             <div className='flex items-end justify-center'><span className='text-xl font-bold text-white'>${ paquete.precio.toLocaleString("en") }</span><span className='text-sm text-[#0076DF] font-semibold'>/<TraslateCopy copyId="PACKAGE_PER_MONTH"/></span></div>
                           </div>
-                          <div class="w-full h-1">
-                            <div class={`h-1 rounded-lg bg-white shadow-[0_0_15px_rgba(255,255,255,1)] transition-all duration-2000`} style={{width:`${isVisible ? percent*10 : 0}%`}}>
+                          <div className="w-full h-1">
+                            <div className={`h-1 rounded-lg bg-white shadow-[0_0_15px_rgba(255,255,255,1)] transition-all duration-2000`} style={{width:`${isVisible ? percent*10 : 0}%`}}>
 
                             </div>
                           </div>
                           <div className='flex flex-col gap-1'>
                             <h1 className='text-white text-base font-semibold'>CARACTERÍSTICAS PRINCIPALES</h1>
                             <div className='flex gap-2'>
-                              { paquete.caracteristicas.map(item => 
-                                <div className='flex gap-2 items-center text-white'>
+                              { paquete.caracteristicas.map((item, i) => 
+                                <div className='flex gap-2 items-center text-white' key={ i }>
                                   <i className="fa-thin fa-circle-check"></i>
                                   <span>{ item.caracteristica }</span>
                                 </div>
