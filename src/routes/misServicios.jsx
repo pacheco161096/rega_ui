@@ -177,8 +177,8 @@ const MisServicios = () => {
                   <div className="misServicios-planTipo plan">{data?.plan?.categoria}</div>
                   <div className="misServicios-caracteristicas plan">
                     <ul className='misServicios-ul'>
-                      { data?.plan?.caracteristicas.map( item => (
-                        <li className='misServicios-li'>{item.caracteristica}</li>
+                      { data?.plan?.caracteristicas.map((item, i) => (
+                        <li className='misServicios-li' key={ i }>{item.caracteristica}</li>
                       )
                       )}
                     </ul>

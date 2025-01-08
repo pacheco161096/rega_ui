@@ -88,9 +88,9 @@ const Soporte = () => {
                 <div>Descripción</div>
                 <div>Estatus</div>
               </div>
-              {tickets.map(ticket => {
+              {tickets.map((ticket, i) => {
                 return(
-                  <div className='soporte-ticket'>
+                  <div className='soporte-ticket' key={ i }>
                     <div>{moment(ticket.fecha).format('DD-MM-YYYY')}</div>
                     <div>{ticket.msg}</div>
                     <div>{ticket.estatus}</div>
