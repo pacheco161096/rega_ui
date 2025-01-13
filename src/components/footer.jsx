@@ -78,7 +78,7 @@ const Footer = () => {
               </div>
               <div className='flex gap-2 items-center mt-2'>
                 <img src={ master } alt="" className='w-[40px]'/>
-                <img src={ oxxo } alt="" className='w-[40px]'/>
+                {/* <img src={ oxxo } alt="" className='w-[40px]'/> */}
                 <img src={ visa } alt="" className='w-[40px]'/>
               </div>
             </div>
