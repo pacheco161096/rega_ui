@@ -123,7 +123,9 @@ const PackageHome = () => {
                             </div>
                           </div>
                           <div className='flex flex-col gap-1'>
-                            <h1 className='text-white text-base font-semibold'>CARACTERÍSTICAS PRINCIPALES</h1>
+                            <h1 className='text-white text-base font-semibold'>
+                              <TraslateCopy copyId="HOME_PAQUETE_TEXT_CARACTERISTICAS" />
+                            </h1>
                             <div className='flex gap-2'>
                               { paquete.caracteristicas.map((item, i) => 
                                 <div className='flex gap-2 items-center text-white' key={ i }>
@@ -163,12 +165,14 @@ const PackageHome = () => {
           </div>
           <div className='px-10 pb-10 flex justify-between w-full items-center'>
             <div className='flex flex-col gap-2'>
-              <h1 className='text-2xl font-semibold'>¡Instalación completa por solo $2,300 MXN!</h1>
+              <h1 className='text-2xl font-semibold'>
+                <TraslateCopy copyId="HOME_MODAL_INSTALLATION_TITLE" />
+              </h1>
               <span>
-              Incluye antena de última generación, router, instalación profesional y 15 metros de cable UTP para exteriores
-                <span className='text-sm ml-1 text-gray-400'>(Metraje adicional con costo extra, consulta con nuestro equipo de atención al cliente).</span>
+                <TraslateCopy copyId="HOME_MODAL_INSTALLATION_DESC_1" />
+                <span className='text-sm ml-1 text-gray-400'>(<TraslateCopy copyId="HOME_MODAL_INSTALLATION_REST_1" />).</span>
               </span>
-              <span>Promoción válida hasta el 30 de noviembre de 2024. ¡No te quedes fuera!</span>
+              <span><TraslateCopy copyId="HOME_MODAL_INSTALLATION_DATE_LIM" /></span>
             </div>
             <div className='flex justify-center items-center'>
               <img src="./assets/antena.jpeg" alt="" />
