@@ -78,10 +78,10 @@ const Contact = () => {
           <div className='md:w-1/2 w-full flex relative aspect-square'>
             <div className='absolute w-[70%] md:w-[55%] p-5 text-white flex flex-col gap-10 h-full justify-center'>
               <h1 className='text-2xl'>
-              Conéctate ahora y deja que nuestro equipo te guíe a la mejor experiencia personalizada.
+              <TraslateCopy copyId="HOME_BANNER_CONNECT_NOW" />
               </h1>
               <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={() => modalCostoExtra(true)}>
-                ¡Haz clic y comienza!
+                <TraslateCopy copyId="HOME_BANNER_CONNECT_NOW_BTN" />
               </div>
             </div>
             <img src='./assets/contacto-phone.jpg' className='w-full rounded-3xl' alt="" />
@@ -90,10 +90,10 @@ const Contact = () => {
           <div className='md:w-1/2 w-full flex relative'>
             <div className='absolute w-[70%] md:w-[60%] p-5 text-white flex flex-col gap-10 h-full justify-center'>
               <h1 className='text-2xl'>
-              Soluciones técnicas al instante, justo donde las necesitas
+                <TraslateCopy copyId="HOME_BANNER_TECNICAL_SOLUTION" />
               </h1>
               <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={() => modalCostoExtra(true)}>
-                Ir a Soporte
+                <TraslateCopy copyId="HOME_BANNER_TECNICAL_SOLUTION_BTN" />
               </div>
             </div>
             <img src='./assets/support.jpg' className='w-full rounded-3xl' alt="" />
