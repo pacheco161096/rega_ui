@@ -144,7 +144,7 @@ const PackageHome = () => {
                             </div>
                           </div>
                           <div className='flex flex-col gap-2'>
-                            <button className='text-white bg-[#0076DF] p-2 rounded-lg text-center w-full' onClick={ () => sendWhatsAppMessage(paquete) }>
+                            <button className='text-white bg-[#0076DF] p-2 rounded-lg text-center w-full' onClick={ () => sendWhatsAppMessage('PACKAGE', paquete) }>
                               <TraslateCopy copyId="PACKAGE_ORDER_NOW"/>
                             </button>
                             <div className='text-xs text-center text-white'>Folio:{paquete.folio}</div>

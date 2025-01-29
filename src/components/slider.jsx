@@ -2,6 +2,7 @@ import React, { useRef,useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import TraslateCopy from './traslateCopy';
 import Input from './input';
+import { sendWhatsAppMessage } from '../utils/functions/general';
 
 const Slider = () => {
   const data = useSelector(state => state.sliders.sliders)
@@ -21,12 +22,16 @@ const Slider = () => {
                           <strong className="lg:block font-extrabold text-4xl md:text-6xl text-center">{slider?.titulo}</strong>
                           <span className='text-sm block text-white text-center'>{slider?.descripcion}</span> 
                         </h1>
-                        { slider?.boton &&  
-                          <form className='flex flex-col w-full md:w-2/4 md:flex-row mt-5 gap-2 items-stretch'>
-                            <Input type='text' className='p-2 border-2 border-[#0076DF] rounded-lg w-full md:w-3/4' placeHolder={ <TraslateCopy copyId="HOME_FORM_SLIDER_INPUT" /> } />
-                            <button className='rounded-lg bg-[#0076DF] text-sm w-full p-2 md:w-1/4 font-semibold text-white'><TraslateCopy copyId="HOME_FORM_SLIDER_BUTTON" /></button>
-                          </form>
+                        { slider?.boton &&
+                          <div className="flex flex-col w-full md:w-2/4 md:flex-row mt-5 gap-2 items-center justify-center">
+                            <button className='rounded-lg bg-[#0076DF] text-sm w-full p-2 md:w-2/5 font-semibold text-white' onClick={ () => sendWhatsAppMessage('GENERIC') }>
+                              <TraslateCopy copyId="HOME_FORM_SLIDER_BUTTON" />
+                            </button>
+                          </div>
                         }
+                        {/* <form className='flex flex-col w-full md:w-2/4 md:flex-row mt-5 gap-2 items-stretch'>
+                          <Input type='text' className='p-2 border-2 border-[#0076DF] rounded-lg w-full md:w-3/4' placeHolder={ <TraslateCopy copyId="HOME_FORM_SLIDER_INPUT" /> } />
+                        </form> */}
                       </div>
                     </div>
                   </div>

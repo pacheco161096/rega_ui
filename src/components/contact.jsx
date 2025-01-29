@@ -81,7 +81,7 @@ const Contact = () => {
               <h1 className='text-2xl'>
               <TraslateCopy copyId="HOME_BANNER_CONNECT_NOW" />
               </h1>
-              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={ () => sendWhatsAppMessage() }>
+              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={ () => sendWhatsAppMessage('GENERIC') }>
                 <TraslateCopy copyId="HOME_BANNER_CONNECT_NOW_BTN" />
               </div>
             </div>
@@ -94,7 +94,7 @@ const Contact = () => {
               <h1 className='text-2xl'>
                 <TraslateCopy copyId="HOME_BANNER_TECNICAL_SOLUTION" />
               </h1>
-              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={ () => sendWhatsAppMessage() }>
+              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={ () => sendWhatsAppMessage('SUPPORT') }>
                 <TraslateCopy copyId="HOME_BANNER_TECNICAL_SOLUTION_BTN" />
               </div>
             </div>
