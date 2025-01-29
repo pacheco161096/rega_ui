@@ -109,13 +109,20 @@ const PackageBussines = () => {
                     <div className='flex flex-col relative px-3'>
                     { handlePackageAnimation && <div className='w-[95%] absolute h-full z-50 rounded-xl flex justify-center items-center animation-package-loading'></div> }
                       <div className='flex flex-col gap-3 absolute bottom-0 left-0 w-full'>
-                        <div className="px-10 py-5 flex-col flex gap-2">
+                        <div className="px-10 py-5 flex-col flex gap-2 z-20">
                           <div className='text-3xl text-white font-bold'>{ paquete.titulo }</div>
                           <div className='flex justify-between'>
                             <span className='text-white font-bold text-xl'>
                               {paquete.velocidad} Mbps
                             </span>
-                            <div className='flex items-end justify-center'><span className='text-xl font-bold text-white'>${ paquete.precio.toLocaleString("en") }</span><span className='text-sm text-[#0076DF] font-semibold'>/<TraslateCopy copyId="PACKAGE_PER_MONTH"/></span></div>
+                            <div className='flex items-end justify-center'>
+                              <span className='text-xl font-bold text-white'>
+                                ${ paquete.precio.toLocaleString("en") }
+                              </span>
+                              <span className='text-sm text-white font-semibold'>
+                                /<TraslateCopy copyId="PACKAGE_PER_MONTH"/>
+                              </span>
+                            </div>
                           </div>
                           <div className="w-full h-1">
                             <div className={`h-1 rounded-lg bg-white shadow-[0_0_15px_rgba(255,255,255,1)] transition-all duration-2000`} style={{width:`${isVisible ? percent*10 : 0}%`}}>
@@ -139,11 +146,14 @@ const PackageBussines = () => {
                             <button className='text-white bg-[#0076DF] p-2 rounded-lg text-center w-full' onClick={ () => sendWhatsAppMessage(paquete) }>
                               <TraslateCopy copyId="PACKAGE_ORDER_NOW"/>
                             </button>
-                            <div className='text-xs text-center text-[#0076DF]'>Folio:{paquete.folio}</div>
+                            <div className='text-xs text-center text-white'>Folio:{paquete.folio}</div>
                           </div>
                         </div>
                       </div>
-                      <img className='object-cover w-full h-[650px] rounded-3xl' src={ `https://monkfish-app-2et8k.ondigitalocean.app${paquete.imagen}` } alt="" />
+                      <div className='relative'>
+                        <img className='object-cover w-full h-[650px] rounded-3xl' src={ `https://monkfish-app-2et8k.ondigitalocean.app${paquete.imagen}` } alt="" />
+                        <div class="absolute inset-0 bg-black bg-opacity-50 rounded-3xl z-10"></div>
+                      </div>
                     </div>
                   </div>
                 )
