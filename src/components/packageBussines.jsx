@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef }  from 'react';
 import { useSelector } from 'react-redux';
 import TraslateCopy from './traslateCopy';
+import { sendWhatsAppMessage } from '../utils/functions/general';
 
 const PackageBussines = () => {
   const paquetes = useSelector(state => state.paquetes.paquetes.paquetesNegocio)
@@ -135,7 +136,9 @@ const PackageBussines = () => {
                             </div>
                           </div>
                           <div className='flex flex-col gap-2'>
-                            <button className='text-white bg-[#0076DF] p-2 rounded-lg text-center w-full'><TraslateCopy copyId="PACKAGE_ORDER_NOW"/></button>
+                            <button className='text-white bg-[#0076DF] p-2 rounded-lg text-center w-full' onClick={ () => sendWhatsAppMessage(paquete) }>
+                              <TraslateCopy copyId="PACKAGE_ORDER_NOW"/>
+                            </button>
                             <div className='text-xs text-center text-[#0076DF]'>Folio:{paquete.folio}</div>
                           </div>
                         </div>
@@ -148,8 +151,12 @@ const PackageBussines = () => {
             </div>
             <div className='w-full flex justify-end mt-5'>
               <div className='flex gap-2'>
-                <button className='border-[#40caf4] rounded-full w-[35px] aspect-square text-[#081025] text-xl flex justify-center items-center bg-gray-200 opacity-70' onClick={() => handleClick('left')}><i className="fa-regular fa-chevron-left"></i></button>
-                <button className='border-[#40caf4] rounded-full w-[35px] aspect-square text-[#081025] text-xl flex justify-center items-center bg-gray-200' onClick={() => handleClick('rigth')}><i className="fa-regular fa-chevron-right"></i></button>
+                <button className='border-[#40caf4] rounded-full w-[35px] aspect-square text-[#081025] text-xl flex justify-center items-center bg-gray-200 opacity-70' onClick={() => handleClick('left')}>
+                  <i className="fa-regular fa-chevron-left"></i>
+                </button>
+                <button className='border-[#40caf4] rounded-full w-[35px] aspect-square text-[#081025] text-xl flex justify-center items-center bg-gray-200' onClick={() => handleClick('rigth')}>
+                  <i className="fa-regular fa-chevron-right"></i>
+                </button>
               </div>
             </div>
           </div>

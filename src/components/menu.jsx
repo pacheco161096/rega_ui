@@ -64,9 +64,9 @@ const Menu = ({handleModal}) => {
           <div>
             { RenderLenguage() }
           </div>
-          <a href="es-mx/login" className="text-sm font-semibold leading-6 text-white cursor-pointer bg-[#0076DF] py-2 px-5 rounded-lg">
+          {/* <a href="es-mx/login" className="text-sm font-semibold leading-6 text-white cursor-pointer bg-[#0076DF] py-2 px-5 rounded-lg">
             <TraslateCopy copyId="HOME_MENU_MYACCOUNT"/>
-          </a>
+          </a> */}
         </Popover.Group>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -107,9 +107,9 @@ const Menu = ({handleModal}) => {
                 <a href="/Contactanos" className="text-sm font-semibold leading-6 text-white cursor-pointer">
                   <TraslateCopy copyId="HOME_MENU_CONTACTANOS"/>
                 </a>
-                <a href="/hoteles" className="text-sm font-semibold leading-6 text-white cursor-pointer bg-[#0076DF] py-2 px-5 rounded-lg">
+                {/* <a href="/hoteles" className="text-sm font-semibold leading-6 text-white cursor-pointer bg-[#0076DF] py-2 px-5 rounded-lg">
                   <TraslateCopy copyId="HOME_MENU_MYACCOUNT"/>
-                </a>
+                </a> */}
               </div>
               <div className="py-6">
               </div>

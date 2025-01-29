@@ -4,6 +4,7 @@ import querys from '../services/indexApi';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Input from '../components/input'
+import { sendWhatsAppMessage } from '../utils/functions/general';
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -80,7 +81,7 @@ const Contact = () => {
               <h1 className='text-2xl'>
               <TraslateCopy copyId="HOME_BANNER_CONNECT_NOW" />
               </h1>
-              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={() => modalCostoExtra(true)}>
+              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={ () => sendWhatsAppMessage() }>
                 <TraslateCopy copyId="HOME_BANNER_CONNECT_NOW_BTN" />
               </div>
             </div>
@@ -92,7 +93,7 @@ const Contact = () => {
               <h1 className='text-2xl'>
                 <TraslateCopy copyId="HOME_BANNER_TECNICAL_SOLUTION" />
               </h1>
-              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={() => modalCostoExtra(true)}>
+              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={ () => sendWhatsAppMessage() }>
                 <TraslateCopy copyId="HOME_BANNER_TECNICAL_SOLUTION_BTN" />
               </div>
             </div>
