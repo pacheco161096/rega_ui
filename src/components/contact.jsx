@@ -4,6 +4,7 @@ import querys from '../services/indexApi';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Input from '../components/input'
+import { sendWhatsAppMessage } from '../utils/functions/general';
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -76,28 +77,30 @@ const Contact = () => {
       <div className="mx-auto max-w-7xl lg:px-8 relative p-6">
         <div className='flex flex-col md:flex-row items-center gap-5 justify-center'>
           <div className='md:w-1/2 w-full flex relative aspect-square'>
-            <div className='absolute w-[70%] md:w-[55%] p-5 text-white flex flex-col gap-10 h-full justify-center'>
+            <div className='absolute w-[70%] md:w-[55%] p-5 text-white flex flex-col gap-10 h-full justify-center z-20'>
               <h1 className='text-2xl'>
               <TraslateCopy copyId="HOME_BANNER_CONNECT_NOW" />
               </h1>
-              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={() => modalCostoExtra(true)}>
+              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={ () => sendWhatsAppMessage() }>
                 <TraslateCopy copyId="HOME_BANNER_CONNECT_NOW_BTN" />
               </div>
             </div>
             <img src='./assets/contacto-phone.jpg' className='w-full rounded-3xl' alt="" />
             <img src='./assets/contacto.jpg' className='w-[200px] md:w-[30%] md:h-[500px] object-cover rounded-lg md:absolute md:-top-[15%] md:bottom-0 md:right-[10%] hidden md:visible' alt='' />
+            <div class="absolute inset-0 bg-black bg-opacity-20 rounded-3xl z-10"></div>
           </div>
           <div className='md:w-1/2 w-full flex relative'>
-            <div className='absolute w-[70%] md:w-[60%] p-5 text-white flex flex-col gap-10 h-full justify-center'>
+            <div className='absolute w-[70%] md:w-[60%] p-5 text-white flex flex-col gap-10 h-full justify-center z-20'>
               <h1 className='text-2xl'>
                 <TraslateCopy copyId="HOME_BANNER_TECNICAL_SOLUTION" />
               </h1>
-              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={() => modalCostoExtra(true)}>
+              <div className='border rounded-2xl w-[180px] p-2 text-center cursor-pointer' onClick={ () => sendWhatsAppMessage() }>
                 <TraslateCopy copyId="HOME_BANNER_TECNICAL_SOLUTION_BTN" />
               </div>
             </div>
             <img src='./assets/support.jpg' className='w-full rounded-3xl' alt="" />
             <img src='./assets/support.jpg' className='w-[200px] md:w-[30%] md:h-[500px] object-cover rounded-lg md:absolute md:-top-[15%] md:bottom-0 md:right-[10%] hidden md:visible' alt='' />
+            <div class="absolute inset-0 bg-black bg-opacity-30 rounded-3xl z-10"></div>
           </div>
         </div>
       </div>
