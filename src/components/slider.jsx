@@ -1,7 +1,7 @@
-import React, { useRef,useEffect } from 'react';
+import React from 'react'; /*  { useRef,useEffect } */
 import { useSelector } from 'react-redux';
 import TraslateCopy from './traslateCopy';
-import Input from './input';
+// import Input from './input';
 import { sendWhatsAppMessage } from '../utils/functions/general';
 
 const Slider = () => {

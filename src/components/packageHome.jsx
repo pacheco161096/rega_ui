@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef }  from 'react';
 import { useSelector } from 'react-redux';
-import Check from './check.svg'
+// import Check from './check.svg'
 import TraslateCopy from './traslateCopy';
 import { sendWhatsAppMessage } from '../utils/functions/general';
 
@@ -153,7 +153,7 @@ const PackageHome = () => {
                       </div>
                       <div className='relative'>
                         <img className='object-cover w-full h-[650px] rounded-3xl' src={`https://monkfish-app-2et8k.ondigitalocean.app${paquete.imagen}`} alt="" />
-                        <div class="absolute inset-0 bg-black bg-opacity-50 rounded-3xl z-10"></div>
+                        <div className="absolute inset-0 bg-black bg-opacity-50 rounded-3xl z-10"></div>
                       </div>
                     </div>
                   </div>
