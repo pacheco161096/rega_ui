@@ -20,13 +20,13 @@ const Contact = () => {
   });
   const [message,setMessage] = useState();
 
-  const handleOnChange = ({target})=> {
+  /* const handleOnChange = ({target})=> {
     const {name,value} = target;
     setForm({
       ...form,
       [name]:value
     })
-  }
+  } */
 
   const handleSubmit = (event) =>{
     event.preventDefault();

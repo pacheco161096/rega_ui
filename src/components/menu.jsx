@@ -1,12 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react'; // useRef
 import logo from '../assets/logo.png'
-import logoBlack from '../assets/logoOscuro.png'
+// import logoBlack from '../assets/logoOscuro.png'
 import mx from '../assets/mx.png'
 import en from '../assets/en.png'
-import { Link, useParams,useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom"; // useNavigate
 import TraslateCopy from './traslateCopy';
-import Login from './login';
-import { useSelector } from 'react-redux';
+// import Login from './login';
+// import { useSelector } from 'react-redux';
 import { Dialog, Popover } from '@headlessui/react'
 import {
   Bars3Icon,
@@ -15,12 +15,12 @@ import {
 
 
 const Menu = ({handleModal}) => {
-  const [menu,setMenu] =  useState(false)
+  /* const [menu,setMenu] =  useState(false)
   const refContainerLogin = useRef(null)
   const refContainerArrow = useRef(null)
   const data = useSelector(state => state.login.user);
   const navigate = useNavigate();
-  const { lang } = useParams();
+  const { lang } = useParams(); */
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 

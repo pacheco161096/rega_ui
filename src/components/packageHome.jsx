@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef }  from 'react';
 import { useSelector } from 'react-redux';
-import Check from './check.svg'
+// import Check from './check.svg'
 import TraslateCopy from './traslateCopy';
 import { sendWhatsAppMessage } from '../utils/functions/general';
 
