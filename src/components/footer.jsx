@@ -33,14 +33,14 @@ const Footer = () => {
           {
             sections.length > 0 && sections.map((item,i) => {
               return(
-                <div key={ item.titulo} className='text-[12px]'>
+                <div key={ i } className='text-[12px]'>
                   <div className='footer-title' onClick={ () => handleFooter(myRefs.current[i], elementsIcon.current[i])}>
                     <span className='font-bold text-gray-800 text-left'>{ item.titulo }</span> 
                     <span ref={ elementsIcon.current[i] }>▼</span>
                   </div>
                   <div className="flex flex-col text-gray-600 gap-2" ref={ myRefs.current[i] }>
                     {
-                      item.links?.length > 0 && item.links.map(link => <a key={ link.link} href={ link.link }>{ link.text }</a>)
+                      item.links?.length > 0 && item.links.map((link, i) => <a key={ i } href={ link.link }>{ link.text }</a>)
                     }
                   </div>
                 </div>
