@@ -1,12 +1,12 @@
 import React, { useRef,createRef  } from 'react';
 import logo from '../assets/logo.png'
-import facebook from '../assets/facebook.png'
+/* import facebook from '../assets/facebook.png'
 import instagram from '../assets/instagram.png'
-import whatsapp from '../assets/whatsapp.png'
+import whatsapp from '../assets/whatsapp.png' */
 import profeco from '../assets/profeco.png'
 import master from '../assets/mastercard.png';
-import oxxo from '../assets/oxxo.png';
-import ventanilla from '../assets/ventanilla.png';
+/* import oxxo from '../assets/oxxo.png';
+import ventanilla from '../assets/ventanilla.png'; */
 import visa from '../assets/visa.png';
 import TraslateCopy from './traslateCopy';
 import { useSelector } from 'react-redux';
@@ -64,9 +64,9 @@ const Footer = () => {
             </div>
             <div className='footer-icons'>
               <div className='flex gap-2 w-full text-gray-600 text-2xl md:text-xl mt-2'>
-                <i className="fa-brands fa-facebook text-left"></i>
-                <i className="fa-brands fa-instagram text-left"></i>
-                <i className="fa-brands fa-whatsapp text-left"></i>
+                <a href="https://www.facebook.com/REGATelecom/"><i className="fa-brands fa-facebook text-left"></i></a>
+                <a href="https://www.instagram.com/regatelecom/"><i className="fa-brands fa-instagram text-left"></i></a>
+                <a href="https://wa.me/523226886206"><i className="fa-brands fa-whatsapp text-left"></i></a>
               </div>
               <div className='footer-profeco'>
                 <img src={profeco} alt="" />
@@ -85,7 +85,7 @@ const Footer = () => {
           </div>
         </div>
         <div className='flex justify-start w-full text-[12px] text-gray-600 border-t mt-5 pt-5 flex-col md:flex-row'>
-          <span>Copyright © 2024 REGATELECOM. Todos los derechos reservados.</span>
+          <span>Copyright © 2025 REGATELECOM. Todos los derechos reservados.</span>
           <div className='flex gap-2 flex-col md:flex-row'>
           {
             documents.map((document, i) => {

@@ -5,12 +5,21 @@ import TraslateCopy from "./traslateCopy";
 import Input from "./input";
 
 const Map = () => {
+
+  const ubications = [
+    { name: 'El Tuito' },
+    { name: 'Mismaloya' },
+    { name: 'Yelapa' },
+    { name: 'Mayto' },
+    { name: 'Chimo' },
+  ];
+
   return (
     <section className='w-full mb-10' id="mapa">
       <div className="w-full h-[500px] relative">
-        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-5 p-6">
+        {/* <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-5 p-6">
           <div className="w-full md:w-[50%] bg-[#0076DF] rounded-xl shadow-2xl p-10 flex flex-col gap-5">
-            <h1 className=" text-3xl md:text-5xl font-semibold text-white text-center">
+            <h1 className="text-3xl md:text-5xl font-semibold text-white text-center">
               <TraslateCopy copyId="HOME_SEARCH_UBICATION" />
             </h1>
             <div className="flex gap-2">
@@ -20,6 +29,18 @@ const Map = () => {
               </div>
             </div>
           </div>
+        </div> */}
+        <div className="absolute top-3.5 left-3.5">
+          <h1 className="text-3xl md:text-5xl font-semibold text-center">
+            Área de cobertura
+          </h1>
+          <ul>
+            {
+              ubications && ubications.map((ubication, index) => (
+                <li key={index}>- {ubication.name}</li>
+              ))
+            }
+          </ul>
         </div>
         <img src="./assets/mapa.jpg" alt="" className="w-full h-full" />
       </div>

@@ -46,9 +46,9 @@ const Menu = ({handleModal}) => {
           </button>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12 items-center">
-          <a href="/Servicios" className="text-sm font-semibold leading-6 text-white cursor-pointer">
+          {/* <a href="/Servicios" className="text-sm font-semibold leading-6 text-white cursor-pointer">
             <TraslateCopy copyId="HOME_MENU_SERVICIOS"/>
-          </a>
+          </a> */}
           <a href="#packages" className="text-sm font-semibold leading-6 text-white cursor-pointer">
             <TraslateCopy copyId="HOME_MENU_INTERNET"/>
           </a>

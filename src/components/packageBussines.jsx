@@ -73,7 +73,7 @@ const PackageBussines = () => {
   }
 
   return (
-    <section className='mb-10 -mt-10' id="packages">
+    <section className='mb-10 -mt-10' id="packagesB">
       <div className="mx-auto max-w-7xl p-6 lg:px-8 flex flex-col gap-4">
         <div className='flex flex-col gap-3 justify-center items-center'>
           <h1 className='text-5xl font-semibold text-[rgb(29,29,31)] w-full'><TraslateCopy copyId="HOME_PAQUETE_BUSSINES_TITULO"/></h1>
