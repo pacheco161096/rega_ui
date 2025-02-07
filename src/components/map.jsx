@@ -7,11 +7,17 @@ import Input from "./input";
 const Map = () => {
 
   const ubications = [
+    { name: 'Juntas y Veranos' },
+    { name: 'La puerta' },
+    { name: 'Pedro Moreno' },
+    { name: 'El Columpio' },
+    { name: 'Ciénega' },
     { name: 'El Tuito' },
-    { name: 'Mismaloya' },
     { name: 'Yelapa' },
-    { name: 'Mayto' },
-    { name: 'Chimo' },
+    { name: 'Ixtlahuahuey' },
+    { name: 'Refugio' },
+    { name: 'Potrerillos' },
+    { name: 'Sauceda' },
   ];
 
   return (
@@ -30,8 +36,8 @@ const Map = () => {
             </div>
           </div>
         </div> */}
-        <div className="absolute top-3.5 left-3.5">
-          <h1 className="text-3xl md:text-5xl font-semibold text-center">
+        <div className="absolute top-3.5 left-3.5 lg:py-16 lg:px-40">
+          <h1 className="text-3xl md:text-5xl font-semibold text-center text-white">
             Área de cobertura
           </h1>
           <ul>
