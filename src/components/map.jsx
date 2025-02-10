@@ -21,34 +21,23 @@ const Map = () => {
   ];
 
   return (
-    <section className='w-full mb-10' id="mapa">
-      <div className="w-full h-[500px] relative">
-        {/* <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-5 p-6">
-          <div className="w-full md:w-[50%] bg-[#0076DF] rounded-xl shadow-2xl p-10 flex flex-col gap-5">
-            <h1 className="text-3xl md:text-5xl font-semibold text-white text-center">
-              <TraslateCopy copyId="HOME_SEARCH_UBICATION" />
+    <section className='w-full mb-10 relative' id="mapa">
+        <div className="absolute bottom-0 left-0 right-0 mx-auto max-w-7xl p-6 lg:px-8 z-20">
+          <div className="bg-black/50 p-2 rounded-lg md:bg-transparent">
+            <h1 className="text-3xl md:text-5xl font-semibold text-white md:text-[#0076DF] mb-2">
+              Área de cobertura
             </h1>
-            <div className="flex gap-2">
-              <Input type='text' className='bg-white rounded-xl p-2 w-full text-white' placeHolder={ <TraslateCopy copyId="HOME_INPUT_WHERE_LOCATED" /> } />
-              <div className="w-[40px] h-[40px] cursor-pointer bg-white rounded-full aspect-square flex justify-center text-center items-center text-[#0076DF]">
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </div>
-            </div>
+            <ul className="grid grid-cols-2 gap-2 text-white md:text-[#0c1c2b] max-w-[50%]">
+              {
+                ubications && ubications.map((ubication, index) => (
+                  <li key={index}>&#9679; {ubication.name}</li>
+                ))
+              }
+            </ul>
           </div>
-        </div> */}
-        <div className="absolute top-3.5 left-3.5 lg:py-16 lg:px-40">
-          <h1 className="text-3xl md:text-5xl font-semibold text-center text-white">
-            Área de cobertura
-          </h1>
-          <ul>
-            {
-              ubications && ubications.map((ubication, index) => (
-                <li key={index}>- {ubication.name}</li>
-              ))
-            }
-          </ul>
-        </div>
-        <img src="./assets/mapa.jpg" alt="" className="w-full h-full" />
+      </div>
+      <div className="w-full h-[500px] relative flex justify-end bg-[#f0f0f0]">
+        <img src="./assets/mapa.jpg" alt="" className="w-full md:w-[70%] h-full" />
       </div>
     </section>
   );
