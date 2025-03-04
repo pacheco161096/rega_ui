@@ -152,7 +152,7 @@ const PackageHome = () => {
                         </div>
                       </div>
                       <div className='relative'>
-                        <img className='object-cover w-full h-[650px] rounded-3xl' src={`https://monkfish-app-2et8k.ondigitalocean.app${paquete.imagen}`} alt="" />
+                        <img className='object-cover w-full h-[650px] rounded-3xl' src={`${paquete.imagen}`} alt="" />
                         <div className="absolute inset-0 bg-black bg-opacity-50 rounded-3xl z-10"></div>
                       </div>
                     </div>
